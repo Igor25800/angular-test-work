@@ -53,6 +53,7 @@
 
       .input-file span {
         width: 100%;
+        overflow: hidden;
         position: relative;
         display: inline-block;
         cursor: pointer;
@@ -113,6 +114,7 @@
   .home {
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 
     &-left {
       width: 100%;
@@ -124,6 +126,7 @@
       position: relative;
 
       .block {
+        width: 100%;
         top: 0;
         bottom: 0;
       }
