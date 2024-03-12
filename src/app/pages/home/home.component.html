@@ -1,0 +1,50 @@
+<div class="home">
+  <div class="home-left">
+    <div>
+      <button (click)="addCert()" class="btn">{{nameBtn}}</button>
+    </div>
+    @if (!certificateInfo.length) {
+      <p class="mt">немає жодного сертифікату</p>
+    }
+    <div class="home-left__table">
+      @for (cert of certificateInfo; track cert; let index = $index) {
+        <div [class.active]="index === selectedId" (click)="selected(index, cert)" class="li">
+          {{cert.commonName}} </div>
+      }
+    </div>
+  </div>
+    <div class="home-right">
+      @if (!selectedCert && isAddCet) {
+      <div class="block">
+        <p class="center_text">Перетягніть файл сертифікату сюда</p>
+        <p class="center_text mt mb">або</p>
+        <label class="input-file">
+          <input type="file" name="file" (change)="onFileChange($event)">
+          <span>{{fileName}}</span>
+        </label>
+      </div>
+      <div
+        class="drop-zone"
+        id="drop-zone"
+        (dragover)="onDragOver($event)"
+        (drop)="onDrop($event)">
+      </div>
+      }
+      @if (selectedCert) {
+        <div class="view">
+          <div class="view-li mt">
+            <span class="text_bolt">Common Name:</span> {{selectedCert.commonName}}
+          </div>
+          <div class="view-li mt">
+            <span class="text_bolt">Issuer CN:</span> {{selectedCert.issuerCN}}
+          </div>
+          <div class="view-li mt">
+            <span class="text_bolt">Valid From:</span> {{selectedCert.from}}
+          </div>
+          <div class="view-li mt">
+            <span class="text_bolt">Valid To:</span> {{selectedCert.to}}
+          </div>
+        </div>
+      }
+    </div>
+</div>
