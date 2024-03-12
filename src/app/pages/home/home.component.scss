@@ -108,3 +108,25 @@
 .active {
   background-color: $silver-10 !important;
 }
+
+@media #{$home-tablet} {
+  .home {
+    display: flex;
+    flex-direction: column;
+
+    &-left {
+      width: 100%;
+    }
+
+    &-right {
+      margin-top: 3rem;
+      width: 100%;
+      position: relative;
+
+      .block {
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
