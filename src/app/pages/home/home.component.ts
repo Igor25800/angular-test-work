@@ -14,7 +14,6 @@ import {LocalStorageService} from "../../shared/services/local-storage.service";
 })
 
 export class HomeComponent implements OnInit {
-
   certificateInfo: CertInterface[] = [];
   fileName = 'Выберите через стандартний діалог';
   selectedId!: number | null;
@@ -47,8 +46,6 @@ export class HomeComponent implements OnInit {
     this.isAddCet = true;
     this.selectedCert = null;
     this.nameBtn = 'Назад'
-
-
   }
 
   onFileChange(event: any): void {
@@ -59,6 +56,7 @@ export class HomeComponent implements OnInit {
       this._parseCertificate(file);
     }
   }
+
   onDragOver(event: DragEvent): void {
     event.preventDefault();
   }
